@@ -1,0 +1,24 @@
+<header>
+
+  
+  <ul>
+    <li><a [routerLink]="['/about-me']" [routerLinkActive]="['actived']">Sobre Mi</a></li>
+    <li><a [routerLink]="['/projects']" [routerLinkActive]="['actived']">Proyectos</a></li>
+    
+    <li id='logo'><a [routerLink]="['/']"><img src="../assets/img/elegantLine.png" alt="">RGHWEB <img class='rotated' src="../assets/img/elegantLine.png" alt=""></a>
+     </li>
+
+    
+    <li><a [routerLink]="['/create']" [routerLinkActive]="['actived']">Crear Proyecto</a></li>
+    <li><a [routerLink]="['/contact']" [routerLinkActive]="['actived']">Contacto</a></li>
+  </ul>
+
+</header>
+
+  <section id="content">
+    <router-outlet></router-outlet>
+  </section>
+
+  <footer>
+      Raul Garcia Hidalgo Portafolio
+  </footer>

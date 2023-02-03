@@ -1,0 +1,65 @@
+<div class="container">
+
+    <h2>{{title}}</h2>
+
+    <div class="message success" *ngIf="status == 'true'">
+        The Project was saved succesfully! You can see <a [routerLink]="['/project', saveProject._id]">it here</a>  
+    </div>
+
+    <div class="message failed" *ngIf="status == 'false'">
+        The Project wasn't saved succesfully.
+    </div>
+    
+    <form #formCreateProject="ngForm" (ngSubmit)='sendData(formCreateProject)'>
+
+        <p>
+            <label for="name">Project name</label><br>
+            <input type="text" #name='ngModel' name="name" [(ngModel)]='project.name' required pattern='[a-zA-z]+'><br>
+            <span style='color:red' *ngIf='!name.valid && name.touched'>
+                Name required!<br><br>
+            </span>
+        </p>
+    
+        <p>
+            <label for="description">Project description</label><br>
+            <textarea type="text"  #description='ngModel' name="description"  [(ngModel)]='project.description' required pattern='[a-zA-z]+'></textarea>  <br>
+            <span style='color:red' *ngIf='!description.valid && description.touched'>
+                Description required!<br><br>
+            </span>
+        </p>
+    
+        <p>
+            <label for="category">Category</label><br>
+            <input type="text" #category='ngModel' name="catogory" [(ngModel)]='project.category' required><br>
+            <span style='color:red' *ngIf='!category.valid && category.touched'>
+               Category required!<br><br>
+            </span>
+        </p>
+    
+        <p>
+            <label for="languages">Used languages</label><br>
+            <textarea type="text" #languages='ngModel' name="languages" [(ngModel)]='project.langs' required></textarea><br>
+            <span style='color:red' *ngIf='!languages.valid && languages.touched'>
+                Languages are required!<br><br>
+            </span>
+        </p>
+    
+        <p>
+            <label for="year">Year</label><br>
+            <textarea type="number" #year='ngModel' name="year" [(ngModel)]='project.year' required></textarea><br>
+            <span style='color:red' *ngIf='!year.valid && year.touched'>
+                Year is required!<br><br>
+            </span>
+        </p>
+
+        <p>
+            <label for="image">Image</label>
+            <input type="file" name="image" placeholder="Upload image" (change)="fileChangeEvent($event)">
+        </p>
+
+        <input type="submit" value='Submit Data' [disabled]='!formCreateProject.form.valid' >
+
+    </form>
+    
+</div>
+

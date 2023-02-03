@@ -1,0 +1,20 @@
+<p>contact works!</p>
+
+<div appHighlighted id="text" #texts>
+    <p>Está es la página de contacto, puedes enviarme cualquier duda que tengas</p>
+</div>
+
+<label for="width">Introduce width</label>
+<input name="width" type="number" [(ngModel)]='widthSlider'><br>
+
+<label for="captions"> Introduce captions</label>
+<input type="text" name="captions" id="captions" [(ngModel)]='captionsSlider'><br>  
+
+<button (click)='loadSlider()'>Apply Changes</button>
+<button (click)='resetSlider()'>Reset Slider</button>
+
+<div *ngIf='anchuraToSlider' >
+    <slider (getAuthor)='getAuthor($event)' [width]='anchuraToSlider' [captions]='captionsSlider'></slider>
+</div>
+
+{{  author.name + ' ' + author.website }}
